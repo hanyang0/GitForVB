@@ -37,15 +37,13 @@ Partial Class MainForm
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         MenuStrip1 = New System.Windows.Forms.MenuStrip()
         MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,31 +68,31 @@ Partial Class MainForm
         '菜单ToolStripMenuItem
         '
         Me.菜单ToolStripMenuItem.Name = "菜单ToolStripMenuItem"
-        Me.菜单ToolStripMenuItem.Size = New System.Drawing.Size(82, 36)
+        Me.菜单ToolStripMenuItem.Size = New System.Drawing.Size(82, 40)
         Me.菜单ToolStripMenuItem.Text = "菜单"
         '
         '编辑ToolStripMenuItem
         '
         Me.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem"
-        Me.编辑ToolStripMenuItem.Size = New System.Drawing.Size(82, 36)
+        Me.编辑ToolStripMenuItem.Size = New System.Drawing.Size(82, 40)
         Me.编辑ToolStripMenuItem.Text = "编辑"
         '
         '数据ToolStripMenuItem
         '
         Me.数据ToolStripMenuItem.Name = "数据ToolStripMenuItem"
-        Me.数据ToolStripMenuItem.Size = New System.Drawing.Size(82, 36)
+        Me.数据ToolStripMenuItem.Size = New System.Drawing.Size(82, 40)
         Me.数据ToolStripMenuItem.Text = "数据"
         '
         '帮助ToolStripMenuItem
         '
         Me.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem"
-        Me.帮助ToolStripMenuItem.Size = New System.Drawing.Size(82, 36)
+        Me.帮助ToolStripMenuItem.Size = New System.Drawing.Size(82, 40)
         Me.帮助ToolStripMenuItem.Text = "帮助"
         '
         '退出ToolStripMenuItem
         '
         Me.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem"
-        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(82, 36)
+        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(82, 40)
         Me.退出ToolStripMenuItem.Text = "退出"
         '
         'ToolStrip1
@@ -172,44 +170,12 @@ Partial Class MainForm
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 80)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(1150, 637)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(625, 30)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(150, 60)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "计算"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(325, 30)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(150, 60)
-        Me.Button2.TabIndex = 0
-        Me.Button2.Text = "导入"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(26, 41)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(10)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidth = 82
-        Me.DataGridView1.RowTemplate.Height = 37
-        Me.DataGridView1.Size = New System.Drawing.Size(1100, 450)
-        Me.DataGridView1.TabIndex = 1
+        Me.GroupBox1.Visible = False
         '
         'GroupBox2
         '
@@ -220,6 +186,24 @@ Partial Class MainForm
         Me.GroupBox2.Size = New System.Drawing.Size(1100, 114)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(325, 30)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(150, 60)
+        Me.Button2.TabIndex = 0
+        Me.Button2.Text = "导入"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(625, 30)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(150, 60)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "计算"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'MainForm
         '
@@ -240,7 +224,6 @@ Partial Class MainForm
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -258,7 +241,6 @@ Partial Class MainForm
     Friend WithEvents ToolStripButton4 As ToolStripButton
     Friend WithEvents ToolStripButton5 As ToolStripButton
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox2 As GroupBox
