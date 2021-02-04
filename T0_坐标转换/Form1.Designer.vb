@@ -40,14 +40,12 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         MenuStrip1 = New System.Windows.Forms.MenuStrip()
         MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -174,7 +172,6 @@ Partial Class MainForm
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 80)
         Me.GroupBox1.Name = "GroupBox1"
@@ -184,7 +181,7 @@ Partial Class MainForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(125, 114)
+        Me.Button1.Location = New System.Drawing.Point(625, 30)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 60)
         Me.Button1.TabIndex = 0
@@ -193,7 +190,7 @@ Partial Class MainForm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(125, 34)
+        Me.Button2.Location = New System.Drawing.Point(325, 30)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(150, 60)
         Me.Button2.TabIndex = 0
@@ -205,30 +202,22 @@ Partial Class MainForm
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(446, 34)
+        Me.DataGridView1.Location = New System.Drawing.Point(26, 41)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(10)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 82
         Me.DataGridView1.RowTemplate.Height = 37
-        Me.DataGridView1.Size = New System.Drawing.Size(691, 585)
+        Me.DataGridView1.Size = New System.Drawing.Size(1100, 450)
         Me.DataGridView1.TabIndex = 1
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(33, 34)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(400, 370)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Location = New System.Drawing.Point(33, 435)
+        Me.GroupBox2.Location = New System.Drawing.Point(26, 504)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(400, 184)
+        Me.GroupBox2.Size = New System.Drawing.Size(1100, 114)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         '
@@ -252,7 +241,6 @@ Partial Class MainForm
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -273,6 +261,5 @@ Partial Class MainForm
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox2 As GroupBox
 End Class
