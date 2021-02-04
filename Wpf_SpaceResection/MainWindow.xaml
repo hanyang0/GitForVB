@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_SpaceResection"
         mc:Ignorable="d"
-        Title="空间交会SpaceResection" Height="450" Width="800">
+        Title="空间交会SpaceResection" Height="500" Width="800">
     <Window.Resources>
-        <ControlTemplate x:Key="DefaultButtonTemplate" TargetType="Button">
-            <Border Background="Red" CornerRadius="5" >
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="❤"  VerticalAlignment="Center"/>
-                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
-                </StackPanel>
-                
 
-            </Border>
-        </ControlTemplate>
     </Window.Resources>
-    <Grid>
-        <Button Width="100" Height="40" Content="text" VerticalAlignment="Center" HorizontalAlignment="Center"   Template="{StaticResource DefaultButtonTemplate}"/>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="20"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Margin="5 0 0 0" Text="班级名称："/>
+            <TextBlock Margin="5 0 0 0" Text="{Binding ClassName}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding stduents}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ClassName}" Header="班级"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="名称"/>
+                <DataGridTextColumn Binding="{Binding Age}"  Header="年龄"/>
+                <DataGridTextColumn Binding="{Binding Sex}" Header="性别"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
