@@ -37,7 +37,6 @@ Partial Class MainForm
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -45,11 +44,11 @@ Partial Class MainForm
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         MenuStrip1 = New System.Windows.Forms.MenuStrip()
         MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -182,7 +181,6 @@ Partial Class MainForm
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Location = New System.Drawing.Point(15, 433)
@@ -190,15 +188,6 @@ Partial Class MainForm
         Me.GroupBox2.Size = New System.Drawing.Size(1100, 114)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(325, 30)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(150, 60)
-        Me.Button2.TabIndex = 0
-        Me.Button2.Text = "转换模式"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -211,7 +200,7 @@ Partial Class MainForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(481, 30)
+        Me.Button1.Location = New System.Drawing.Point(308, 30)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 60)
         Me.Button1.TabIndex = 0
@@ -275,6 +264,15 @@ Partial Class MainForm
         Me.TabPage3.Text = "结果"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(23, 23)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox1.Size = New System.Drawing.Size(1087, 505)
+        Me.TextBox1.TabIndex = 0
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
@@ -301,15 +299,6 @@ Partial Class MainForm
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
         Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(0, 31)
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(23, 23)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox1.Size = New System.Drawing.Size(1087, 505)
-        Me.TextBox1.TabIndex = 0
         '
         'MainForm
         '
@@ -354,7 +343,6 @@ Partial Class MainForm
     Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents ToolStripButton4 As ToolStripButton
     Friend WithEvents ToolStripButton5 As ToolStripButton
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents TabControl1 As TabControl
