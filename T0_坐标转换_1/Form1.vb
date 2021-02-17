@@ -3,8 +3,11 @@ Imports T0_坐标转换.AngConver
 Public Class MainForm
     Dim mf, L0, B As Double
     Public a, f, e2, e02, W, n1, t, N, M, M0 As Double
+
+
+
     Dim dt As New DataTable
-    Dim mpoint() As Point
+    Dim mpoint() As mPoint
     Public ModeSetName As String
 
     Public Sub TableLoad()
@@ -28,6 +31,7 @@ Public Class MainForm
             DataGridView1(CStr(i), 0).Style.BackColor = Color.Linen
         Next
     End Sub
+
     Public Sub EllipoidCalc()
         f = 1 / mf
         e2 = 2 * f - f * f
@@ -40,6 +44,105 @@ Public Class MainForm
         M0 = a * (1 - e2)
     End Sub
 
+    Public Sub PrintOut()
+        TextBox1.Text = "1.椭球相关参数计算：" & vbCrLf
+        TextBox1.Text &= String.Format("f={0:f6}", f) & vbCrLf
+        TextBox1.Text &= String.Format("e^2={0:f6}", e2) & vbCrLf
+        TextBox1.Text &= String.Format("e'^2={0:f6}", e02) & vbCrLf
+        TextBox1.Text &= String.Format("W={0:f6}", W) & vbCrLf
+        TextBox1.Text &= String.Format("n={0:f6}", n1) & vbCrLf
+        TextBox1.Text &= String.Format("t={0:f6}", t) & vbCrLf
+        TextBox1.Text &= String.Format("N={0:f6}", N) & vbCrLf
+        TextBox1.Text &= String.Format("M={0:f6}", M) & vbCrLf
+        TextBox1.Text &= String.Format("M0={0:f6}", M0) & vbCrLf
+        TextBox1.Text &= vbCrLf
+
+
+
+
+        TextBox1.Text &= "2:" & ModeSetName & vbCrLf
+        TextBox1.Text &= "--------------------------------------" & vbCrLf
+        TextBox1.Text &= String.Format("{0,-5}    {1,-17}    {2,-17}{3,-8}  {4,-14}{5,-14}{6,-14}{7}", "点名", "B", "L", "H", "X", "Y", "Z", vbCrLf)
+        For i As Integer = 0 To mpoint.Length - 1
+            TextBox1.Text &= String.Format("{0,-5}", mpoint(i).Name)
+            TextBox1.Text &= String.Format("{0,-17}", DMSToDMSstr(mpoint(i).XB))
+            TextBox1.Text &= String.Format("{0,-17}", DMSToDMSstr(mpoint(i).YL))
+            TextBox1.Text &= String.Format("{0,-8:f4}", mpoint(i).ZH)
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).X(a, e2))
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Y(a, e2))
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Z(a, e2))
+            TextBox1.Text &= vbCrLf
+        Next
+        TextBox1.Text &= vbCrLf
+
+
+
+
+        For i As Integer = 0 To mpoint.Length - 1
+            DataGridView1("7", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).X(a, e2))
+            DataGridView1("8", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).Y(a, e2))
+            DataGridView1("9", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).Z(a, e2))
+            For j As Integer = 7 To 9
+                DataGridView1(CStr(j), i + 1).Style.BackColor = Color.LightYellow
+            Next
+        Next
+
+
+
+
+        TextBox1.Text &= "3:" & ModeSetName & vbCrLf
+        TextBox1.Text &= "--------------------------------------" & vbCrLf
+        TextBox1.Text &= String.Format("{0,-5}   {1,-14} {2,-14}{3,-14}  {4,-17}   {5,-17}   {6,-8}{7}", "点名", "B", "L", "H", "X", "Y", "Z", vbCrLf)
+        For i As Integer = 0 To mpoint.Length - 1
+            TextBox1.Text &= String.Format("{0,-5:f4}", mpoint(i).Name)
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).X(a, e2) + 2018)
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Y(a, e2) + 2018)
+            TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Z(a, e2) + 2018)
+            TextBox1.Text &= String.Format("{0,-17:f4}", RadToDMSstr(mpoint(i).B(a, e2)))
+            TextBox1.Text &= String.Format("{0,-17:f4}", RadToDMSstr(mpoint(i).L(a, e2)))
+            TextBox1.Text &= String.Format("{0,-8:f4}", mpoint(i).H(a, e2))
+            TextBox1.Text &= vbCrLf
+        Next
+    End Sub
+
+    Public Sub DrawPoint(a As Graphics, b As Pen, x As Integer, y As Integer)
+        a.DrawLine(b, x - 5, y - 5, x + 5, y + 5)
+        a.DrawLine(b, x + 5, y - 5, x - 5, y + 5)
+    End Sub
+
+    Public Sub DrawAxis(a As Graphics, b As Pen, c As SolidBrush, d As Font, x As Integer, y As Integer)
+        a.DrawLine(b, 100, y, x, y)
+        a.DrawLine(b, 100, 100, 100, y)
+        For i As Integer = 0 To 5
+            a.DrawLine(b, 100, CInt(100 + (y - 100) / 5 * i), 90, CInt(100 + (y - 100) / 5 * i))
+            a.DrawString(CInt(YHeight() / 5 * i + YMin()), d, c, 0, CInt(100 + (y - 100) / 5 * i) - 5)
+        Next
+        For i As Integer = 0 To 9
+            a.DrawLine(b, CInt(100 + (x - 100) / 9 * i), y, CInt(100 + (x - 100) / 9 * i), y + 10)
+            a.DrawString(CInt(XWidth() / 5 * i + XMin()), d, c, CInt(100 + (x - 100) / 9 * i) - 20, y + 10)
+        Next
+
+    End Sub
+
+    Public Sub DrawOut()
+        Dim DRAW_BITMAP As New Bitmap(PictureBox2.Width, PictureBox2.Height)
+
+        Dim PenPoint As New Pen(Color.Red, 4)
+        Dim PenAxis As New Pen(Color.Black, 2)
+        Dim b As New SolidBrush(Color.Black)
+        Dim f As New Font("宋体", 10)
+        Using g As Graphics = Graphics.FromImage(DRAW_BITMAP)
+            For i As Integer = 0 To mpoint.Length - 1
+                DrawPoint(g, PenPoint, CInt((mpoint(i).X(a, e2) - XMin()) / XWidth() * (PictureBox2.Width - 200)) + 100, CInt((mpoint(i).Y(a, e2) - YMin()) / YHeight() * (PictureBox2.Height - 200)) + 100)
+                g.DrawString(mpoint(i).Name, f, b, CInt((mpoint(i).X(a, e2) - XMin()) / XWidth() * (PictureBox2.Width - 200)) + 90, CInt((mpoint(i).Y(a, e2) - YMin()) / YHeight() * (PictureBox2.Height - 200)) + 80)
+                DrawAxis(g, PenAxis, b, f, PictureBox2.Width - 50, PictureBox2.Height - 50)
+            Next
+            PictureBox2.Image = DRAW_BITMAP
+        End Using
+        'PictureBox1.Refresh()
+        'g.Dispose()
+        PictureBox2.Image.Save("ckk.dxf")
+    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         If a = Nothing Then
@@ -47,68 +150,43 @@ Public Class MainForm
             Button1.PerformClick()
         Else
             EllipoidCalc()
-            'TabControl1.SelectedTab = TabPage3
-            TextBox1.Text = "1.椭球相关参数计算：" & vbCrLf
-            TextBox1.Text &= String.Format("f={0:f6}", f) & vbCrLf
-            TextBox1.Text &= String.Format("e^2={0:f6}", e2) & vbCrLf
-            TextBox1.Text &= String.Format("e'^2={0:f6}", e02) & vbCrLf
-            TextBox1.Text &= String.Format("W={0:f6}", W) & vbCrLf
-            TextBox1.Text &= String.Format("n={0:f6}", n1) & vbCrLf
-            TextBox1.Text &= String.Format("t={0:f6}", t) & vbCrLf
-            TextBox1.Text &= String.Format("N={0:f6}", N) & vbCrLf
-            TextBox1.Text &= String.Format("M={0:f6}", M) & vbCrLf
-            TextBox1.Text &= String.Format("M0={0:f6}", M0) & vbCrLf
-            TextBox1.Text &= vbCrLf
-
-
-
-
-            TextBox1.Text &= "2:" & ModeSetName & vbCrLf
-            TextBox1.Text &= "--------------------------------------" & vbCrLf
-            TextBox1.Text &= String.Format("{0,-5}    {1,-17}    {2,-17}{3,-8}  {4,-14}{5,-14}{6,-14}{7}", "点名", "B", "L", "H", "X", "Y", "Z", vbCrLf)
-            For i As Integer = 0 To mpoint.Length - 1
-                TextBox1.Text &= String.Format("{0,-5}", mpoint(i).Name)
-                TextBox1.Text &= String.Format("{0,-17}", DMSToDMSstr(mpoint(i).XB))
-                TextBox1.Text &= String.Format("{0,-17}", DMSToDMSstr(mpoint(i).YL))
-                TextBox1.Text &= String.Format("{0,-8:f4}", mpoint(i).ZH)
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).X(a, e2))
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Y(a, e2))
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Z(a, e2))
-                TextBox1.Text &= vbCrLf
-            Next
-            TextBox1.Text &= vbCrLf
-
-
-
-
-            For i As Integer = 0 To mpoint.Length - 1
-                DataGridView1("7", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).X(a, e2))
-                DataGridView1("8", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).Y(a, e2))
-                DataGridView1("9", i + 1).Value = String.Format("{0:f4}  ", mpoint(i).Z(a, e2))
-                For j As Integer = 7 To 9
-                    DataGridView1(CStr(j), i + 1).Style.BackColor = Color.LightYellow
-                Next
-            Next
-
-
-
-
-            TextBox1.Text &= "3:" & ModeSetName & vbCrLf
-            TextBox1.Text &= "--------------------------------------" & vbCrLf
-            TextBox1.Text &= String.Format("{0,-5}   {1,-14} {2,-14}{3,-14}  {4,-17}   {5,-17}   {6,-8}{7}", "点名", "B", "L", "H", "X", "Y", "Z", vbCrLf)
-            For i As Integer = 0 To mpoint.Length - 1
-                TextBox1.Text &= String.Format("{0,-5:f4}", mpoint(i).Name)
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).X(a, e2) + 2018)
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Y(a, e2) + 2018)
-                TextBox1.Text &= String.Format("{0,-14:f4}", mpoint(i).Z(a, e2) + 2018)
-                TextBox1.Text &= String.Format("{0,-17:f4}", RadToDMSstr(mpoint(i).B(a, e2)))
-                TextBox1.Text &= String.Format("{0,-17:f4}", RadToDMSstr(mpoint(i).L(a, e2)))
-                TextBox1.Text &= String.Format("{0,-8:f4}", mpoint(i).H(a, e2))
-                TextBox1.Text &= vbCrLf
-            Next
+            TabControl1.SelectedTab = TabPage2
+            PrintOut()
+            DrawOut()
         End If
 
     End Sub
+    Function XMin() As Double
+        Dim X(mpoint.Length - 1)
+        For i As Integer = 0 To mpoint.Length - 1
+            X(i) = mpoint(i).X(a, e2)
+        Next
+        Return X.Min
+    End Function
+
+    Function YMin() As Double
+        Dim Y(mpoint.Length - 1)
+        For i As Integer = 0 To mpoint.Length - 1
+            Y(i) = mpoint(i).Y(a, e2)
+        Next
+        Return Y.Min
+    End Function
+
+    Function XWidth() As Double
+        Dim X(mpoint.Length - 1)
+        For i As Integer = 0 To mpoint.Length - 1
+            X(i) = mpoint(i).X(a, e2)
+        Next
+        Return X.Max - X.Min
+    End Function
+
+    Function YHeight() As Double
+        Dim Y(mpoint.Length - 1)
+        For i As Integer = 0 To mpoint.Length - 1
+            Y(i) = mpoint(i).Y(a, e2)
+        Next
+        Return Y.Max - Y.Min
+    End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
         ToolStripStatusLabel1.Text = "请选择坐标转换模式"
@@ -119,6 +197,8 @@ Public Class MainForm
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         ToolStripStatusLabel1.Text = "单击导入按钮开始导入数据"
+
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -149,7 +229,7 @@ Public Class MainForm
                 If i > 4 Then
                     dt.Rows.Add()
                 End If
-                mpoint(i - 1) = New Point With {
+                mpoint(i - 1) = New mPoint With {
                     .Name = DataStr$(5 + 4 * i),
                     .XB = Val(DataStr$(6 + 4 * i)),
                     .YL = Val(DataStr$(7 + 4 * i)),

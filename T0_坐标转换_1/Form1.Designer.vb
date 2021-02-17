@@ -43,6 +43,7 @@ Partial Class MainForm
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -56,6 +57,8 @@ Partial Class MainForm
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -245,6 +248,7 @@ Partial Class MainForm
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.PictureBox2)
         Me.TabPage2.Location = New System.Drawing.Point(8, 8)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -252,6 +256,16 @@ Partial Class MainForm
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "绘图"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox2.Location = New System.Drawing.Point(44, 30)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1053, 495)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
         '
         'TabPage3
         '
@@ -323,6 +337,8 @@ Partial Class MainForm
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
@@ -351,9 +367,10 @@ Partial Class MainForm
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button3 As Button
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

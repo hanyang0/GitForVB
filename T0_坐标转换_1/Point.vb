@@ -1,6 +1,6 @@
 ﻿Imports T0_坐标转换.AngConver
 Imports System.Math
-Public Class Point
+Public Class mPoint
     Property Name As String
     Property YL As Double
     Property XB As Double
@@ -45,17 +45,14 @@ Public Class Point
     Function B(value1 As Double, value2 As Double) As Double
         Dim a As Double = value1
         Dim e2 As Double = value2
-        W = Sqrt(1 - e2 * (Sin(CRad(XB)) ^ 2))
-        N = a / W
         Dim mB0 As Double = Atan2(Z(a, e2), Sqrt((Y(a, e2) + 2018) ^ 2 + (X(a, e2) + 2018) ^ 2))
         Dim mB As Double = Atan2(((Z(a, e2) + 2018) + N * e2 * Sin(CRad(mB0))), Sqrt((Y(a, e2) + 2018) ^ 2 + (X(a, e2) + 2018) ^ 2))
-        Do Until False
-            If Abs(mB0 - mB) < 10 ^ (-8) And Abs(mB0 - mB) > -10 ^ (-8) Then
-                Exit Do
-            Else
-                mB0 = mB
-                mB = Atan(((Z(a, e2) + 2018) + N * e2 * Sin(CRad(mB0))) / Sqrt((Y(a, e2) + 2018) ^ 2 + (X(a, e2) + 2018) ^ 2))
-            End If
+
+        Do Until Abs(mB0 - mB) < 0.00000001
+            mB0 = mB
+            W = Sqrt(1 - e2 * (Sin(CRad(mB)) ^ 2))
+            N = a / W
+            mB = Atan2(((Z(a, e2) + 2018) + N * e2 * Sin(CRad(mB0))), Sqrt((Y(a, e2) + 2018) ^ 2 + (X(a, e2) + 2018) ^ 2))
         Loop
 
         Return mB
