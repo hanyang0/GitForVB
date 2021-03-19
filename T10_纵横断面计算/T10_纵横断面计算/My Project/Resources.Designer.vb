@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("T0_坐标转换.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("T10_纵横断面计算.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -76,6 +76,46 @@ Namespace My.Resources
         Friend ReadOnly Property 打开() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("打开", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Friend ReadOnly Property 放大() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("放大", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Friend ReadOnly Property 绘图() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("绘图", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Friend ReadOnly Property 缩小() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("缩小", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Friend ReadOnly Property 计算() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("计算", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

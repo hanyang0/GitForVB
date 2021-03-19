@@ -24,7 +24,7 @@ Public Class AngConver
         Deg = Rad * 180 / PI
         DD = Int(Deg)
         MM = Int((Deg - DD) * 60)
-        SS = Format(((Deg - DD) * 60 - MM) * 60, "00.0000")
+        SS = Format(((Deg - DD) * 60 - MM) * 60, "00.000")
         If SS >= 60 Then
             SS -= 60
             MM += 1
@@ -47,7 +47,7 @@ Public Class AngConver
         Deg = Rad * 180 / PI
         DD = Int(Deg)
         MM = Int((Deg - DD) * 60)
-        SS = Format(((Deg - DD) * 60 - MM) * 60, "00.0000")
+        SS = Format(((Deg - DD) * 60 - MM) * 60, "00.000")
         If SS >= 60 Then
             SS -= 60
             MM += 1
@@ -57,9 +57,9 @@ Public Class AngConver
             DD += 1
         End If
         If ValuSign = -1 Then
-            Return String.Format("-{0}°{1}′{2:f4}″", DD, MM, SS)
+            Return String.Format("-{0}°{1}′{2}″", DD, MM, SS)
         Else
-            Return String.Format("{0}°{1}′{2:f4}″", DD, MM, SS)
+            Return String.Format("{0}°{1}′{2}″", DD, MM, SS)
         End If
     End Function
 
@@ -83,9 +83,13 @@ Public Class AngConver
         End If
 
         If ValuSign = -1 Then
-            Return String.Format("-{0}°{1}′{2:f4}″", DD, MM, SS)
+            Return String.Format("-{0}°{1}′{2}″", DD, MM, SS)
         Else
-            Return String.Format("{0}°{1}′{2:f4}″", DD, MM, SS)
+            Return String.Format("{0}°{1}′{2}″", DD, MM, SS)
         End If
     End Function
 End Class
+
+
+
+

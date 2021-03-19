@@ -25,8 +25,15 @@ Partial Class MainForm
         Dim MenuStrip1 As System.Windows.Forms.MenuStrip
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.菜单ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.导出计算结果TXTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.导出绘图结果DXFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BMPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DXFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.退出程序ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.编辑ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.重新导入ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.数据ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.计算ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.帮助ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.退出ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -41,6 +48,8 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -83,21 +92,67 @@ Partial Class MainForm
         '
         '菜单ToolStripMenuItem
         '
+        Me.菜单ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.导出计算结果TXTToolStripMenuItem, Me.导出绘图结果DXFToolStripMenuItem, Me.退出程序ToolStripMenuItem})
         Me.菜单ToolStripMenuItem.Name = "菜单ToolStripMenuItem"
         Me.菜单ToolStripMenuItem.Size = New System.Drawing.Size(74, 40)
         Me.菜单ToolStripMenuItem.Text = "菜单"
         '
+        '导出计算结果TXTToolStripMenuItem
+        '
+        Me.导出计算结果TXTToolStripMenuItem.Name = "导出计算结果TXTToolStripMenuItem"
+        Me.导出计算结果TXTToolStripMenuItem.Size = New System.Drawing.Size(347, 38)
+        Me.导出计算结果TXTToolStripMenuItem.Text = "导出计算结果（TXT）"
+        '
+        '导出绘图结果DXFToolStripMenuItem
+        '
+        Me.导出绘图结果DXFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BMPToolStripMenuItem, Me.DXFToolStripMenuItem})
+        Me.导出绘图结果DXFToolStripMenuItem.Name = "导出绘图结果DXFToolStripMenuItem"
+        Me.导出绘图结果DXFToolStripMenuItem.Size = New System.Drawing.Size(347, 38)
+        Me.导出绘图结果DXFToolStripMenuItem.Text = "导出绘图结果"
+        '
+        'BMPToolStripMenuItem
+        '
+        Me.BMPToolStripMenuItem.Name = "BMPToolStripMenuItem"
+        Me.BMPToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
+        Me.BMPToolStripMenuItem.Text = "BMP"
+        '
+        'DXFToolStripMenuItem
+        '
+        Me.DXFToolStripMenuItem.Name = "DXFToolStripMenuItem"
+        Me.DXFToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
+        Me.DXFToolStripMenuItem.Text = "DXF"
+        '
+        '退出程序ToolStripMenuItem
+        '
+        Me.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem"
+        Me.退出程序ToolStripMenuItem.Size = New System.Drawing.Size(347, 38)
+        Me.退出程序ToolStripMenuItem.Text = "退出程序"
+        '
         '编辑ToolStripMenuItem
         '
+        Me.编辑ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.重新导入ToolStripMenuItem})
         Me.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem"
         Me.编辑ToolStripMenuItem.Size = New System.Drawing.Size(74, 40)
         Me.编辑ToolStripMenuItem.Text = "编辑"
         '
+        '重新导入ToolStripMenuItem
+        '
+        Me.重新导入ToolStripMenuItem.Name = "重新导入ToolStripMenuItem"
+        Me.重新导入ToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
+        Me.重新导入ToolStripMenuItem.Text = "重新导入"
+        '
         '数据ToolStripMenuItem
         '
+        Me.数据ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.计算ToolStripMenuItem})
         Me.数据ToolStripMenuItem.Name = "数据ToolStripMenuItem"
         Me.数据ToolStripMenuItem.Size = New System.Drawing.Size(74, 40)
         Me.数据ToolStripMenuItem.Text = "数据"
+        '
+        '计算ToolStripMenuItem
+        '
+        Me.计算ToolStripMenuItem.Name = "计算ToolStripMenuItem"
+        Me.计算ToolStripMenuItem.Size = New System.Drawing.Size(160, 38)
+        Me.计算ToolStripMenuItem.Text = "计算"
         '
         '帮助ToolStripMenuItem
         '
@@ -129,23 +184,22 @@ Partial Class MainForm
         '
         'ToolStripButton1
         '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ToolStripButton1.Font = New System.Drawing.Font("Microsoft YaHei UI", 6.0!)
+        Me.ToolStripButton1.Image = Global.T0_坐标转换.My.Resources.Resources.打开
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 27)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(78, 27)
+        Me.ToolStripButton1.Text = "导入"
         '
         'ToolStripButton2
         '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ToolStripButton2.Font = New System.Drawing.Font("Microsoft YaHei UI", 6.0!)
+        Me.ToolStripButton2.Image = Global.T0_坐标转换.My.Resources.Resources.保存
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 27)
-        Me.ToolStripButton2.Text = "ToolStripButton2"
+        Me.ToolStripButton2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripButton2.Size = New System.Drawing.Size(78, 27)
+        Me.ToolStripButton2.Text = "导出"
         '
         'ToolStripSeparator1
         '
@@ -154,33 +208,33 @@ Partial Class MainForm
         '
         'ToolStripButton3
         '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton3.Font = New System.Drawing.Font("Microsoft YaHei UI", 6.0!)
         Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 27)
-        Me.ToolStripButton3.Text = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(94, 27)
+        Me.ToolStripButton3.Text = "数据视图"
         '
         'ToolStripButton4
         '
-        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton4.Font = New System.Drawing.Font("Microsoft YaHei UI", 6.0!)
         Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
         Me.ToolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(23, 27)
-        Me.ToolStripButton4.Text = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(94, 27)
+        Me.ToolStripButton4.Text = "绘图视图"
         '
         'ToolStripButton5
         '
-        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton5.Font = New System.Drawing.Font("Microsoft YaHei UI", 6.0!)
         Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
         Me.ToolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 27)
-        Me.ToolStripButton5.Text = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(94, 27)
+        Me.ToolStripButton5.Text = "结果视图"
         '
         'GroupBox2
         '
@@ -224,6 +278,8 @@ Partial Class MainForm
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Button4)
+        Me.TabPage1.Controls.Add(Me.Button2)
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Location = New System.Drawing.Point(8, 8)
@@ -234,16 +290,36 @@ Partial Class MainForm
         Me.TabPage1.Text = "数据"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(1060, 240)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(55, 187)
+        Me.Button4.TabIndex = 5
+        Me.Button4.Text = "-"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(1060, 25)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(55, 187)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "+"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'DataGridView1
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Location = New System.Drawing.Point(15, 25)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 180
         Me.DataGridView1.RowTemplate.Height = 37
-        Me.DataGridView1.Size = New System.Drawing.Size(1100, 402)
+        Me.DataGridView1.Size = New System.Drawing.Size(1038, 402)
         Me.DataGridView1.TabIndex = 4
         '
         'TabPage2
@@ -259,6 +335,7 @@ Partial Class MainForm
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox2.Location = New System.Drawing.Point(44, 30)
         Me.PictureBox2.Name = "PictureBox2"
@@ -373,4 +450,13 @@ Partial Class MainForm
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents 重新导入ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 计算ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 导出计算结果TXTToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 导出绘图结果DXFToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 退出程序ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents BMPToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DXFToolStripMenuItem As ToolStripMenuItem
 End Class
