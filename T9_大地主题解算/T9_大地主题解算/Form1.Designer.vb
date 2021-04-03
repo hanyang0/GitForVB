@@ -22,7 +22,6 @@ Partial Class Form1
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.文件ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.导入正算数据ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -30,10 +29,13 @@ Partial Class Form1
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.保存报告ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.保存绘图ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BMPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DXFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.退出ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.计算ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.大地正算ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.大地反算ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.绘图ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.视图ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.数据ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.绘图ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,12 +63,9 @@ Partial Class Form1
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.绘图ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BMPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DXFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -74,8 +73,8 @@ Partial Class Form1
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -84,7 +83,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.文件ToolStripMenuItem, Me.计算ToolStripMenuItem, Me.绘图ToolStripMenuItem1, Me.视图ToolStripMenuItem, Me.关于ToolStripMenuItem, Me.退出ToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(997, 42)
+        Me.MenuStrip1.Size = New System.Drawing.Size(997, 39)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -92,7 +91,7 @@ Partial Class Form1
         '
         Me.文件ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.导入正算数据ToolStripMenuItem, Me.导入反算数据ToolStripMenuItem, Me.ToolStripSeparator2, Me.保存报告ToolStripMenuItem, Me.保存绘图ToolStripMenuItem, Me.退出ToolStripMenuItem})
         Me.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem"
-        Me.文件ToolStripMenuItem.Size = New System.Drawing.Size(74, 38)
+        Me.文件ToolStripMenuItem.Size = New System.Drawing.Size(74, 35)
         Me.文件ToolStripMenuItem.Text = "文件"
         '
         '导入正算数据ToolStripMenuItem
@@ -122,8 +121,20 @@ Partial Class Form1
         '
         Me.保存绘图ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BMPToolStripMenuItem, Me.DXFToolStripMenuItem})
         Me.保存绘图ToolStripMenuItem.Name = "保存绘图ToolStripMenuItem"
-        Me.保存绘图ToolStripMenuItem.Size = New System.Drawing.Size(268, 38)
+        Me.保存绘图ToolStripMenuItem.Size = New System.Drawing.Size(256, 38)
         Me.保存绘图ToolStripMenuItem.Text = "保存绘图"
+        '
+        'BMPToolStripMenuItem
+        '
+        Me.BMPToolStripMenuItem.Name = "BMPToolStripMenuItem"
+        Me.BMPToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
+        Me.BMPToolStripMenuItem.Text = "BMP"
+        '
+        'DXFToolStripMenuItem
+        '
+        Me.DXFToolStripMenuItem.Name = "DXFToolStripMenuItem"
+        Me.DXFToolStripMenuItem.Size = New System.Drawing.Size(165, 38)
+        Me.DXFToolStripMenuItem.Text = "DXF"
         '
         '退出ToolStripMenuItem
         '
@@ -149,6 +160,12 @@ Partial Class Form1
         Me.大地反算ToolStripMenuItem.Name = "大地反算ToolStripMenuItem"
         Me.大地反算ToolStripMenuItem.Size = New System.Drawing.Size(208, 38)
         Me.大地反算ToolStripMenuItem.Text = "大地反算"
+        '
+        '绘图ToolStripMenuItem1
+        '
+        Me.绘图ToolStripMenuItem1.Name = "绘图ToolStripMenuItem1"
+        Me.绘图ToolStripMenuItem1.Size = New System.Drawing.Size(74, 35)
+        Me.绘图ToolStripMenuItem1.Text = "绘图"
         '
         '视图ToolStripMenuItem
         '
@@ -191,7 +208,7 @@ Partial Class Form1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton6, Me.ToolStripButton5, Me.ToolStripSeparator4, Me.ToolStripButton4, Me.ToolStripButton7, Me.ToolStripSeparator3, Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripSeparator1, Me.ToolStripLabel1, Me.ToolStripTextBox1, Me.ToolStripLabel2, Me.ToolStripTextBox2})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 42)
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 39)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(997, 40)
         Me.ToolStrip1.TabIndex = 1
@@ -199,7 +216,7 @@ Partial Class Form1
         '
         'ToolStripButton6
         '
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.Image = Global.T9_大地主题解算.My.Resources.Resources.正算
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton6.Name = "ToolStripButton6"
         Me.ToolStripButton6.Size = New System.Drawing.Size(98, 37)
@@ -207,7 +224,7 @@ Partial Class Form1
         '
         'ToolStripButton5
         '
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.Image = Global.T9_大地主题解算.My.Resources.Resources.反算
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
         Me.ToolStripButton5.Size = New System.Drawing.Size(98, 37)
@@ -220,7 +237,7 @@ Partial Class Form1
         '
         'ToolStripButton4
         '
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.Image = Global.T9_大地主题解算.My.Resources.Resources.T
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
         Me.ToolStripButton4.Size = New System.Drawing.Size(146, 37)
@@ -228,7 +245,7 @@ Partial Class Form1
         '
         'ToolStripButton7
         '
-        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.Image = Global.T9_大地主题解算.My.Resources.Resources.P
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton7.Name = "ToolStripButton7"
         Me.ToolStripButton7.Size = New System.Drawing.Size(146, 37)
@@ -241,7 +258,7 @@ Partial Class Form1
         '
         'ToolStripButton1
         '
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.Image = Global.T9_大地主题解算.My.Resources.Resources.Table
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(98, 37)
@@ -249,7 +266,7 @@ Partial Class Form1
         '
         'ToolStripButton2
         '
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.Image = Global.T9_大地主题解算.My.Resources.Resources.pic
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(98, 37)
@@ -257,7 +274,7 @@ Partial Class Form1
         '
         'ToolStripButton3
         '
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.Image = Global.T9_大地主题解算.My.Resources.Resources.rep
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
         Me.ToolStripButton3.Size = New System.Drawing.Size(98, 37)
@@ -350,6 +367,14 @@ Partial Class Form1
         Me.TabPage2.Text = "绘图"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(27, 27)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(911, 404)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.TextBox1)
@@ -369,32 +394,6 @@ Partial Class Form1
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.TextBox1.Size = New System.Drawing.Size(897, 392)
         Me.TextBox1.TabIndex = 0
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(27, 27)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(911, 404)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        '绘图ToolStripMenuItem1
-        '
-        Me.绘图ToolStripMenuItem1.Name = "绘图ToolStripMenuItem1"
-        Me.绘图ToolStripMenuItem1.Size = New System.Drawing.Size(74, 38)
-        Me.绘图ToolStripMenuItem1.Text = "绘图"
-        '
-        'BMPToolStripMenuItem
-        '
-        Me.BMPToolStripMenuItem.Name = "BMPToolStripMenuItem"
-        Me.BMPToolStripMenuItem.Size = New System.Drawing.Size(268, 38)
-        Me.BMPToolStripMenuItem.Text = "BMP"
-        '
-        'DXFToolStripMenuItem
-        '
-        Me.DXFToolStripMenuItem.Name = "DXFToolStripMenuItem"
-        Me.DXFToolStripMenuItem.Size = New System.Drawing.Size(268, 38)
-        Me.DXFToolStripMenuItem.Text = "DXF"
         '
         'Form1
         '
@@ -417,9 +416,9 @@ Partial Class Form1
         Me.TabPage1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
